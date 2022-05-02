@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>MIX IT</title>
+</head>
+
+<body style="display: grid;height: 100vh;margin: 0;grid-template-columns: auto;grid-template-rows:auto;"></body>
+    <div id="menu" class="initialMenu">
+        <img src="https://raw.githubusercontent.com/nemfey/hackupc22/main/hackabeja.png" class="bee">
+        <button id="normalMode" class="button" onclick="hardMode()">
+            Normal mode
+        </button>
+        <button id="hardMode" class="button" onclick="normalMode()">
+            Hard mode
+        </button>
+    </div>
+    <div id="game" style="display: none;">
+        <canvas id="canvas"></canvas>
+        <div class="timer">
+            <div class="circle"></div>
+            <p id="countdown">00:30</p>
+        </div>
+        <div class="board">
+            <div class="display"></div>
+            <div class="solution"></div>
+        </div>
+        <div class="nav">
+            <div class="container">
+                
+            </div>
+            <img src="https://pixy.org/download/4454425/" onclick="clean()" width="80" height="100" />
+        </div>
+    </div> 
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
