@@ -49,7 +49,6 @@ function averageHex(colors) {
 
 function checkAccuracy() {
     if (display_mix == null) return 0;
-
     let tmp = [];
     tmp.push(display_mix);
     tmp.push(color_final);

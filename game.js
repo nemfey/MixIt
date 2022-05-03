@@ -42,7 +42,7 @@ function runGame() {
     clean();
     generarColorAleatorio();
 
-    // only add click event once
+    // only add click event once when needed
     if(addEventClicker) {
         const ctx = document.getElementById("canvas").getContext("2d");
 
