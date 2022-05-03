@@ -1,3 +1,5 @@
+let addEventClicker = true;
+
 let color_final;    // color shown as objective
 let col_display;    // colors used to create player's color
 let display_mix;    // color created by the player
@@ -40,28 +42,30 @@ function runGame() {
     clean();
     generarColorAleatorio();
 
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
+    // only add click event once
+    if(addEventClicker) {
+        const ctx = document.getElementById("canvas").getContext("2d");
 
-    let colors = document.querySelectorAll(".clr");
-    colors.forEach(clr => {
-        clr.addEventListener("click", () => {
-            ctx.strokeStyle = clr.dataset.clr;
-            console.log(ctx.strokeStyle);
-            col_display.push(clr.dataset.clr);
-            
-            //if (col_display.length != 1) {
-                display_mix = averageHex(col_display);
-                document.querySelector(".display").style.backgroundColor = display_mix;
-            /*}
-            else {
-                document.querySelector(".display").style.backgroundColor = clr.dataset.clr;
-            }
-            */
-            if (checkAccuracy() >= 96) {
-                window.setTimeout(MyConfirm, 300);
-            }
+        let colors = document.querySelectorAll(".clr");
+        colors.forEach(clr => {
+            clr.addEventListener("click", () => {
+                ctx.strokeStyle = clr.dataset.clr;
+                console.log(ctx.strokeStyle);
+                col_display.push(clr.dataset.clr);
+                
+                if (col_display.length != 1) {
+                    display_mix = averageHex(col_display);
+                    document.querySelector(".display").style.backgroundColor = display_mix;
+                }
+                else {
+                    document.querySelector(".display").style.backgroundColor = clr.dataset.clr;
+                }
+                if (checkAccuracy() >= 96) {
+                    window.setTimeout(MyConfirm, 300);
+                }
+            })
         })
-    })
+        addEventClicker = false;
+    }
 
 }

@@ -23,6 +23,7 @@ function normalMode() {
     containerColors.appendChild(createColor("#000000","background-color: #000000"));
 
     document.getElementById('menu').style.display = 'none';
+    addEventClicker = true;
     runGame();
 }
 
@@ -48,5 +49,6 @@ function hardMode() {
     containerColors.appendChild(createColor("#808080","background-color: #808080"));
 
     document.getElementById('menu').style.display = 'none';
+    addEventClicker = true;
     runGame();
 }
