@@ -16,12 +16,13 @@ function generarColorAleatorio() {
         let nuevalong  = color.push(col_tmp);
         console.log("Color Mezcla: ",col_tmp);
     }
-    color_final = averageHex(color);
-    console.log("Color Final: ",color_final);
-    document.querySelector(".solution").style.backgroundColor = color_final;
+    colorFinal = averageHex(color);
+    console.log("Color Final: ",colorFinal);
+    document.querySelector(".solution").style.backgroundColor = colorFinal;
 }
 
 function averageHex(colors) {
+    if(colors.length == 1) return colors.at(0);
     // transform all hex codes to integer arrays, e.g. [[R, G, B], [R,G,B], ...]
     let numbers = colors.map(function (hex) {
         let split = hex.match(/[\da-z]{2}/gi);
@@ -45,10 +46,10 @@ function averageHex(colors) {
 }
 
 function checkAccuracy() {
-    if (display_mix == null) return 0;
+    if (displayMix == null) return 0;
     let tmp = [];
-    tmp.push(display_mix);
-    tmp.push(color_final);
+    tmp.push(displayMix);
+    tmp.push(colorFinal);
 
     let numbers = tmp.map(function (hex) {
         // split in seperate R, G and B
@@ -76,7 +77,7 @@ function checkAccuracy() {
 
 function clean() {
     document.querySelector(".display").style.backgroundColor = "";
-    col_display = [];
-    display_mix = null;
+    colorDisplay = [];
+    displayMix = null;
     console.log("clean");
 }

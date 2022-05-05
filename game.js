@@ -1,8 +1,8 @@
 let addEventClicker = true;
 
-let color_final;    // color shown as objective
-let col_display;    // colors used to create player's color
-let display_mix;    // color created by the player
+let colorFinal;    // color shown as objective
+let colorDisplay;    // colors used to create player's color
+let displayMix;    // color created by the player
 
 let time;
 let intervalId;
@@ -50,16 +50,13 @@ function runGame() {
         colors.forEach(clr => {
             clr.addEventListener("click", () => {
                 ctx.strokeStyle = clr.dataset.clr;
-                console.log(ctx.strokeStyle);
-                col_display.push(clr.dataset.clr);
+                colorDisplay.push(clr.dataset.clr);
                 
-                if (col_display.length != 1) {
-                    display_mix = averageHex(col_display);
-                    document.querySelector(".display").style.backgroundColor = display_mix;
-                }
-                else {
-                    document.querySelector(".display").style.backgroundColor = clr.dataset.clr;
-                }
+                console.log(ctx.strokeStyle);
+                
+                displayMix = averageHex(colorDisplay);
+                document.querySelector(".display").style.backgroundColor = displayMix;
+                
                 if (checkAccuracy() >= 96) {
                     window.setTimeout(MyConfirm, 300);
                 }
