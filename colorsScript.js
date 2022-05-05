@@ -35,11 +35,9 @@ function averageHex(colors) {
             // if we reached the last color, average it out and return the hex value
             if (index == array.length - 1) {
                 let result = Math.round((subtotal + amount[subindex]) / array.length).toString(16);
-                // add a leading 0 if it is only one character
                 return result.length == 2 ? '' + result : '0' + result;
-            } else {
-                return subtotal + amount[subindex];
             }
+            else return subtotal + amount[subindex];
         });
     });
     return "#" + averages.join('');

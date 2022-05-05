@@ -1,8 +1,8 @@
 let addEventClicker = true;
 
-let colorFinal;    // color shown as objective
-let colorDisplay;    // colors used to create player's color
-let displayMix;    // color created by the player
+let colorFinal;     // color shown as objective
+let colorDisplay;   // colors used to create player's color
+let displayMix;     // color created by the player
 
 let time;
 let intervalId;
