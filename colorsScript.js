@@ -1,23 +1,22 @@
-function getRandomElement(arr) {
-    return arr[Math.floor(Math.random()*arr.length)]
+function getRandomElement(array) {
+    return array[Math.floor(Math.random()*array.length)];
 }
 
 function generarColorAleatorio() {
-    let color = [];
-    let num_mix = Math.floor((Math.random() * (13)) + 2);
-    let colores = document.querySelectorAll("[data-clr]");  // En vez de #color poner .clr
-    let col_tmp = getRandomElement(colores).dataset.clr;            //TEMPORAL PARA VER SI FUNCIONA
-    let nuevalong = color.push(col_tmp);
-    console.log("Color Mezcla: ",col_tmp);
-    for (let step = 0; step < num_mix-1; step++)
-    {
-        let num_col = Math.floor((Math.random() * (13)) + 2);
-        col_tmp = getRandomElement(colores).dataset.clr;                 //TEMPORAL PARA VER SI FUNCIONA
-        let nuevalong  = color.push(col_tmp);
-        console.log("Color Mezcla: ",col_tmp);
+    let palette = document.querySelectorAll("[data-clr]");
+    let randomColor = [];
+    let numberOfColors = 10; // cuantos colores utilizamos
+    console.log("Numero de colores: ", numberOfColors);
+    
+    for(let i = 0; i < numberOfColors; ++i) {
+        // guardar el color como variable antes si se quiere ganar para testear
+        let color = getRandomElement(palette).dataset.clr;
+        console.log(color);
+        //
+        randomColor.push(color);
     }
-    colorFinal = averageHex(color);
-    console.log("Color Final: ",colorFinal);
+    colorFinal = averageHex(randomColor);
+    console.log("Color final: ", colorFinal);
     document.querySelector(".solution").style.backgroundColor = colorFinal;
 }
 
